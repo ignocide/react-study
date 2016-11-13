@@ -1,30 +1,23 @@
-var glob = require('glob')
-
 module.exports = {
-  entry: glob.sync('./src/item/*.js'),
 
-  output: {
-    path: __dirname + '/public/',
-    filename: 'bundle.js'
-  },
+    entry: './src/index.js',
 
-  devServer: {
-    inline: true,
-    port: 7777,
-    contentBase: __dirname + '/public/'
-  },
+    output: {
+        path: __dirname + '/public',
+        filename: 'bundle.js'
+    },
 
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        query: {
-          cacheDirectory: true,
-          presets: ['es2015', 'react']
-        }
-      }
-    ]
-  }
-}
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/,
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'react']
+                }
+            }
+        ]
+    }
+};
